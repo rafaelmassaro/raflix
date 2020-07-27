@@ -24,7 +24,7 @@ function VideoCardGroup({
           }
         </>
       )}
-      <VideoCardList>
+      <VideoCardList color={categoryColor}>
         {videos.map((video, index) => {
           if (ignoreFirstVideo && index === 0) {
             return null;
