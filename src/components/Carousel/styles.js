@@ -34,17 +34,6 @@ export const ExtraLink = styled.a`
 `;
 
 export const VideoCardList = styled.ul`
-  ::-webkit-scrollbar-track {
-    background-color: #414141;
-    border-radius: 5px;
-  }
-  ::-webkit-scrollbar {
-    height: 10px;
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: ${props => props.color};
-  }
   margin: 0;
   padding-left: 0;
   padding-bottom: 32px;
