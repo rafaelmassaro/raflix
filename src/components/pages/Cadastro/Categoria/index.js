@@ -27,7 +27,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL_TOP = 'http://localhost:8080/categorias';
+    const URL_TOP = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://raflix.herokuapp.com/categorias';
 
     fetch(URL_TOP)
       .then(async (response) => {
@@ -108,7 +110,7 @@ function CadastroCategoria() {
       )}
 
       <ul>
-        {categories.map((category) => <li key={`${category.nome}`}>{category.name}</li>)}
+        {categories.map((category) => <li key={`${category.name}`}>{category.name}</li>)}
       </ul>
 
       <Link to="/" className="voltar">

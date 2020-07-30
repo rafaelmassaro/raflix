@@ -2,14 +2,14 @@
     "categorias": [
         {
             "id":1,
-            "nome":"Frontend",
-            "descrition":"Categoria show",
+            "name":"Frontend",
+            "description":"Categoria show",
             "cor":"#6BD1FF"
         },
         {
             "id":2,
-            "nome":"Backend",
-            "descrition":"Categoria show",
+            "name":"Backend",
+            "description":"Categoria show",
             "cor":"#6BF31FF"
         }
         
