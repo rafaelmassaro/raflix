@@ -3,28 +3,18 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../PageDefault';
 import FormField from '../../../FormField';
 import Button from '../../../Button';
+import useForm from '../../../../hooks/useForm';
 
 function CadastroCategoria() {
   const [categories, setCategories] = useState([]);
 
   const initialValues = {
-    name: '',
+    titulo: '',
     description: '',
     color: '#000',
   };
 
-  const [values, setValues] = useState(initialValues);
-
-  function setValue(key, value) {
-    setValues({
-      ...values,
-      [key]: value,
-    });
-  }
-
-  function HandleChangeForm(info) {
-    setValue(info.target.getAttribute('name'), info.target.value);
-  }
+  const { HandleChangeForm, values, clearForm } = useForm(initialValues);
 
   useEffect(() => {
     const URL_TOP = window.location.hostname.includes('localhost')
@@ -68,15 +58,15 @@ function CadastroCategoria() {
       <form onSubmit={function handleSubmit(info) {
         info.preventDefault();
         setCategories([...categories, values]);
-        setValues(initialValues);
+        clearForm();
       }}
       >
 
         <FormField
           className="text"
-          label="Nome da Categoria"
+          label="Titulo da Categoria"
           type="text"
-          name="name"
+          name="titulo"
           value={values.name}
           onChange={HandleChangeForm}
         />
@@ -110,7 +100,7 @@ function CadastroCategoria() {
       )}
 
       <ul>
-        {categories.map((category) => <li key={`${category.name}`}>{category.name}</li>)}
+        {categories.map((category) => <li key={`${category.titulo}`}>{category.titulo}</li>)}
       </ul>
 
       <Link to="/" className="voltar">
